@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pizza_app/screens/login_screen.dart';
+import 'package:pizza_app/widgets/app_widget.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -17,7 +18,7 @@ class SplashScreen extends StatelessWidget {
       nextScreen: const LoginScreen(),
       duration: 3500,
       splashIconSize: 400,
-      backgroundColor: const Color.fromARGB(255, 224, 207, 48),
+      backgroundColor: AppWidget.backgroundColor(),
     );
   }
 }
