@@ -7,7 +7,7 @@ class AppWidget {
 
   static TextStyle boldTextFieldStyle() {
     return TextStyle(
-      fontSize: 20.0,
+      fontSize: 15.0,
       color: Colors.black,
       fontWeight: FontWeight.bold,
       fontFamily: 'Poppins',
@@ -38,6 +38,18 @@ class AppWidget {
       color: Colors.black,
       fontWeight: FontWeight.w500,
       fontFamily: 'Poppins',
+    );
+  }
+
+  static TextStyle storeName() {
+    return TextStyle(
+      fontSize: 22.0,
+      fontFamily: 'Matemasie',
+      fontWeight: FontWeight.bold,
+      foreground: Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.0
+        ..color = Colors.red,
     );
   }
 }
