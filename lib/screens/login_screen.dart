@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_app/screens/home_screen.dart';
 import 'package:pizza_app/widgets/app_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -9,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +66,17 @@ class _LoginScreenState extends State<LoginScreen> {
               padding:
                   const EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
               child: TextFormField(
-                obscureText: true,
+                obscureText: _obscureText,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                    icon: Icon(
+                        _obscureText ? Icons.visibility : Icons.visibility_off),
+                  ),
                   filled: true,
                   fillColor: Colors.white,
                   labelText: "Password",
@@ -79,6 +90,103 @@ class _LoginScreenState extends State<LoginScreen> {
                 maxLines: 1,
               ),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Container(
+                    height: 50.0,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Matemasie',
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Material(
+                      elevation: 5.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Container(
+                        height: 50.0,
+                        width: 200.0,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 94, 255),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                "assets/photos/facebook.png",
+                                height: 40.0,
+                                width: 40.0,
+                              ),
+                              Text(
+                                "Facebook",
+                                style: AppWidget.semiBoldTextFieldStyle(),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Material(
+                      elevation: 5.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Container(
+                        height: 50.0,
+                        width: 200.0,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 43, 157, 250),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
