@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pizza_app/screens/home_screen.dart';
+import 'package:pizza_app/screens/signup_screen.dart';
 import 'package:pizza_app/widgets/app_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -129,8 +130,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 10.0,
+            const SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              "-------------or-------------",
+              style: AppWidget.lightTextFieldStyle(),
+            ),
+            const SizedBox(
+              height: 20.0,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -181,10 +189,48 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: const Color.fromARGB(255, 43, 157, 250),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset(
+                              "assets/photos/instagram.png",
+                              height: 30.0,
+                              width: 30.0,
+                            ),
+                            Text(
+                              "Instagram",
+                              style: AppWidget.semiBoldTextFieldStyle(),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ],
+              ),
+            ),
+            SizedBox(
+              height: 70.0,
+            ),
+            Text(
+              "Create account ? ",
+              style: AppWidget.lightTextFieldStyle(),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SignUp(),
+                  ),
+                );
+              },
+              child: Text(
+                "Sign Up",
+                style: TextStyle(
+                    fontSize: 15.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700),
               ),
             )
           ],
